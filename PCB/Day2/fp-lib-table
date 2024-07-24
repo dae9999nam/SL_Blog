@@ -1,0 +1,4 @@
+(fp_lib_table
+  (lib (name test)(type KiCad)(uri C:/Users/EEE/Downloads/Task4/Task4)(options "")(descr ""))
+  (lib (name Tutorial2)(type KiCad)(uri D:/CI-PCB-Package-V1/Task4-Charger/Lib)(options "")(descr ""))
+)

@@ -1,0 +1,5 @@
+(sym_lib_table
+  (lib (name ELE2840-Task4)(type Legacy)(uri D:/CI-PCB-Package-V1/Task4-Charger/Lib/ELE2840-Task4.lib)(options "")(descr ""))
+  (lib (name cache)(type Legacy)(uri ${KIPRJMOD}/Task4-cache.lib)(options "")(descr ""))
+  (lib (name Task4-cache)(type Legacy)(uri ${KIPRJMOD}/Task4-cache.lib)(options "")(descr ""))
+)

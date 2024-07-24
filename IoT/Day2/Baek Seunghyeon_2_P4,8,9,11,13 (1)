@@ -1,0 +1,238 @@
+from sense_hat import SenseHat, ACTION_PRESSED
+from time import sleep
+import time, datetime
+import os
+
+
+
+def pushed_middle(event):
+    print(round(temp,2))
+
+
+sense = SenseHat()
+sense.clear()
+
+pressure = sense.get_pressure()
+print(pressure)
+
+temp = sense.get_temperature()
+print(temp)
+
+humidity = sense.get_humidity()
+print(humidity)
+
+sense.stick.direction_middle = pushed_middle
+
+
+f = open("record.txt", "w")
+# for i in range(50):
+n = 0
+while n < 50:
+    datenow = datetime.datetime.now()
+    r_temp = round(temp, 2)
+    f.write(f"{datenow}\t{r_temp}\n")
+    n += 1
+    sleep(1)
+f.close()
+from sense_hat import SenseHat, ACTION_PRESSED
+from time import sleep
+
+def pushed_middle(event):
+    print(round(temp,2))
+
+
+sense = SenseHat()
+sense.clear()
+
+pressure = sense.get_pressure()
+print(pressure)
+
+temp = sense.get_temperature()
+print(temp)
+
+humidity = sense.get_humidity()
+print(humidity)
+
+sense.stick.direction_middle = pushed_middle
+
+
+
+
+
+
+from time import sleep
+from sense_hat import SenseHat
+
+sense = SenseHat()
+blue = (0, 0, 255)
+
+ball_position = [3, 3]
+ball_velocity = [1, 1]
+bat_pos = 4
+
+def draw_bat():
+  sense.set_pixel(0, bat_pos, 0, 255, 0)
+  sense.set_pixel(0, bat_pos+1, 0, 255, 0)
+  sense.set_pixel(0, bat_pos-1, 0, 255, 0)
+  
+def move_up(event):
+  global bat_pos
+  if bat_pos > 1 and event.action=='pressed':
+    bat_pos -= 1
+    
+def move_down(event):
+  global bat_pos
+  if bat_pos < 6 and event.action=='pressed':
+    bat_pos += 1
+    
+def draw_ball():
+  global ball_position
+  # Draws the ball pixel
+  sense.set_pixel(ball_position[0], ball_position[1], 255, 255, 255)
+  # Moves the ball to the next position
+  ball_position[0] += ball_velocity[0]
+  ball_position[1] += ball_velocity[1]
+    
+  if ball_position[1] == 0 or ball_position[1] == 7:
+    ball_velocity[1] = -ball_velocity[1]
+  if ball_position[0] == 0 or ball_position[0] == 7:
+    ball_velocity[0] = -ball_velocity[0]
+  if ball_position[0] == 1 and bat_pos - 1 <= ball_position[1] <= bat_pos + 1:
+    ball_velocity[0] = -ball_velocity[0]
+        
+sense.stick.direction_up = move_up
+sense.stick.direction_down = move_down
+
+
+while True:
+  sense.clear(0, 0, 0)
+  draw_bat()
+  draw_ball()
+  sleep(0.15)
+
+from sense_hat import SenseHat
+from time import sleep
+import random
+sense = SenseHat()
+
+blue = (0, 0, 255)
+yellow = (255, 255, 0)
+violet = (148, 0, 211)
+indigo = (75, 0, 130)
+green = (0, 255, 0)
+orange = (255, 127, 0)
+red = (255, 0, 0)
+white = (255, 255, 255)
+
+color_list = [blue, yellow, violet, indigo, green, orange, red, white]
+
+ball_position = [3, 3] # coordinates of the starting position
+white = (255, 255, 255)
+sense.set_pixel(ball_position[0], ball_position[1], white)
+
+while True:
+  rand_idx1 = random.randrange(len(color_list))
+  random_color1 = color_list[rand_idx1]
+  
+  sleep(1)	# sleep for 1 second
+  ball_position[0] = random.randint(0, 7) # generate a new x-position
+  ball_position[1] = random.randint(0, 7) # generate a new y-position
+  sense.clear()
+  sense.set_pixel(ball_position[0], ball_position[1], random_color1)
+from sense_hat import SenseHat
+import random
+sense = SenseHat()
+
+blue = (0, 0, 255)
+yellow = (255, 255, 0)
+violet = (148, 0, 211)
+indigo = (75, 0, 130)
+green = (0, 255, 0)
+orange = (255, 127, 0)
+red = (255, 0, 0)
+white = (255, 255, 255)
+
+
+while True:
+  sense.show_message("EEE is awesome!", text_colour=red, back_colour=white, scroll_speed=0.05)
+  sense.show_message("EEE is awesome!", text_colour=orange, back_colour=red, scroll_speed=0.05)
+  sense.show_message("EEE is awesome!", text_colour=yellow, back_colour=orange, scroll_speed=0.05)
+  sense.show_message("EEE is awesome!", text_colour=green, back_colour=yellow, scroll_speed=0.05)
+  sense.show_message("EEE is awesome!", text_colour=blue, back_colour=green, scroll_speed=0.05)
+  sense.show_message("EEE is awesome!", text_colour=indigo, back_colour=blue, scroll_speed=0.05)
+  sense.show_message("EEE is awesome!", text_colour=violet, back_colour=indigo, scroll_speed=0.05)
+
+from sense_hat import SenseHat
+import random
+sense = SenseHat()
+
+blue = (0, 0, 255)
+yellow = (255, 255, 0)
+violet = (148, 0, 211)
+indigo = (75, 0, 130)
+green = (0, 255, 0)
+orange = (255, 127, 0)
+red = (255, 0, 0)
+white = (255, 255, 255)
+
+color_list = [blue, yellow, violet, indigo, green, orange, red, white]
+
+while True:
+  rand_idx1 = random.randrange(len(color_list))
+  rand_idx2 = random.randrange(len(color_list))
+
+  random_color1 = color_list[rand_idx1]
+  random_color2 = color_list[rand_idx2]
+
+  sense.show_message("EEE is awesome!", text_colour=random_color1, back_colour=random_color2, scroll_speed=0.05)
+
+2024-06-18 11:15:51.229249	36.21
+2024-06-18 11:15:52.230382	36.21
+2024-06-18 11:15:53.231550	36.21
+2024-06-18 11:15:54.232763	36.21
+2024-06-18 11:15:55.233971	36.21
+2024-06-18 11:15:56.235177	36.21
+2024-06-18 11:15:57.236361	36.21
+2024-06-18 11:15:58.237557	36.21
+2024-06-18 11:15:59.238762	36.21
+2024-06-18 11:16:00.240001	36.21
+2024-06-18 11:16:01.241202	36.21
+2024-06-18 11:16:02.242394	36.21
+2024-06-18 11:16:03.243579	36.21
+2024-06-18 11:16:04.244766	36.21
+2024-06-18 11:16:05.245966	36.21
+2024-06-18 11:16:06.247156	36.21
+2024-06-18 11:16:07.248327	36.21
+2024-06-18 11:16:08.249487	36.21
+2024-06-18 11:16:09.250667	36.21
+2024-06-18 11:16:10.251844	36.21
+2024-06-18 11:16:11.253029	36.21
+2024-06-18 11:16:12.254214	36.21
+2024-06-18 11:16:13.255405	36.21
+2024-06-18 11:16:14.256583	36.21
+2024-06-18 11:16:15.257741	36.21
+2024-06-18 11:16:16.258902	36.21
+2024-06-18 11:16:17.260085	36.21
+2024-06-18 11:16:18.261255	36.21
+2024-06-18 11:16:19.262425	36.21
+2024-06-18 11:16:20.263594	36.21
+2024-06-18 11:16:21.264763	36.21
+2024-06-18 11:16:22.265919	36.21
+2024-06-18 11:16:23.267084	36.21
+2024-06-18 11:16:24.268268	36.21
+2024-06-18 11:16:25.269448	36.21
+2024-06-18 11:16:26.270619	36.21
+2024-06-18 11:16:27.271790	36.21
+2024-06-18 11:16:28.272960	36.21
+2024-06-18 11:16:29.274180	36.21
+2024-06-18 11:16:30.275406	36.21
+2024-06-18 11:16:31.276610	36.21
+2024-06-18 11:16:32.277788	36.21
+2024-06-18 11:16:33.279000	36.21
+2024-06-18 11:16:34.280209	36.21
+2024-06-18 11:16:35.281412	36.21
+2024-06-18 11:16:36.282644	36.21
+2024-06-18 11:16:37.283866	36.21
+2024-06-18 11:16:38.285046	36.21
+2024-06-18 11:16:39.286198	36.21
+2024-06-18 11:16:40.287373	36.21

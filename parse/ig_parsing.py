@@ -24,4 +24,14 @@ with open(csv_file_path, 'r') as f:
             description = meta_tag['content']
             follower_count = None
         
-            #Extract the follwer count from the description 
+            #Extract the follwer count from the description using 
+            if '팔로워' in description:
+                start_index = description.index('팔로워') + len()
+                end_index = description.index('명', start_index)
+                follower_count_str = description[start_index:end_index]
+                follower_count = int(follower_count_str.replace(',', ''))
+
+            print(f"{name}: Follower count = {follower_count}")
+
+        else:
+            print(f"{name}: Follower count not found.")

@@ -4,7 +4,7 @@
 
 ### **_Content_**
 
-#### Package: matplotlib, Sense-Hat, BeautifulSoup4, MQTT, GPIO
+#### Package: NumPy, Pandas, matplotlib, Sense-Hat, BeautifulSoup4, MQTT, GPIO
  
 #### Technology: Jupyter notebook, LabVIEW, KiCad, Google Colab
 

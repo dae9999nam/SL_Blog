@@ -4,10 +4,12 @@
 
 ### **_Content_**
 
-#### Package: matplotlib, SenseHat, BeautifulSoup4, MQTT, GPIO
-
-#### Technology: Jupyter notebook, LabVIEW
+#### Package: matplotlib, Sense-Hat, BeautifulSoup4, MQTT, GPIO
+ 
+#### Technology: Jupyter notebook, LabVIEW, KiCad, Google Colab
 
 #### CI: LabVIEW, graphical programming language tasks in rtf file format
 
 #### IoT: Python programming with SenseHat, matplotlib, GPIO, MQTT tasks
+
+####ML/DL: Fundamental learning using PyTorch and Google Colab 
